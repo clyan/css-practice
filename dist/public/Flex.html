@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自适应导航栏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        header{
+            position: sticky; /* 其他浏览器 */
+            top: 20px;
+            display: flex;
+            flex-flow: row wrap;
+            background-color:deepskyblue;
+        }
+        .logo{
+            flex: 0 1 100px;
+        }
+        .logo span{
+           display: none;
+        }
+        .box{
+            margin:0px;
+            flex: 1 1;
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:flex-end;
+            list-style:none;
+        }
+        ul{
+            margin:0px;
+            padding: 0;
+        }
+        .box a{
+            text-decoration:none;
+            display:block;
+            color:white;
+            padding:1em;
+        }
+        .box a:hover{
+            background-color:#00AEE8;
+        }
+        @media all and (max-width:800px){
+            .box{
+                justify-content:space-around;
+            }
+            .box li {
+                flex: 1;
+            }
+            .logo span{
+                display: block;
+                padding: 1em;
+            }
+            .logo h3{
+                display: none;
+            }
+        }
+        @media all and (max-width:600px){
+            header{
+                flex-flow: column nowrap;
+            }
+            .logo{
+                flex: auto ;
+                border-bottom:1px solid rgba(0,0,0,0.1);
+            }
+            .box{
+                flex-flow:column nowrap;
+                padding:0;
+                display: none;
+            }
+            .box a{
+                text-align:center;
+                padding:10px;
+                border-bottom:1px solid rgba(0,0,0,0.1);
+            }
+            .box li:last-of-type a{
+                border-bottom:0px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">
+            <h3>麻瓜二号</h3>
+            <span id="meau">下拉</span>
+        </div>
+        <ul class="box">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Product1233333333333333</a></li>
+            <li><a href="#">Connect</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="content">
+            <div class="">
+                
+            </div>
+        </div>
+    </main>
+</div>
+
+</body>
+<script>
+  const meau=  document.querySelector("#meau")
+  const ul=  document.querySelector("ul")
+  meau.addEventListener('click',(e)=>{
+    let style =ul.style.display
+    ul.style.display =  style =='flex'? 'none': 'flex'
+  })
+</script>
+</html>

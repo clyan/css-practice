@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 
+      外部盒子不用预留宽度，但是中间部分需要多嵌套一个盒子，这个盒子为中间内容的主体部分
+     */
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    /* html, body, .wrap, .center, .left, .right, .in {
+      height: 100%;
+    } */
+    /* 预留左右位置 */
+    .wrap {
+      background: grey;
+      overflow: hidden;
+    }
+    .left {
+      width: 200px;
+      float: left;
+      margin-left: -100%;
+      background-color: red;
+    }
+
+    /* 占100% */
+    .center {
+      width: 100%;
+      float: left;
+      background-color: green;
+    }
+    .in {
+      margin:  0 300px 0 200px;
+      background-color: yellow;
+    }
+    .right {
+      width: 300px;
+      float: left;
+      margin-left: -300px;
+      background-color: blue;
+    }
+    .left, .right, .center {
+      padding-bottom: 99999px;
+      margin-bottom:  -99999px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="center">
+      <div class="in">
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+        <p>50</p>
+      </div>
+    </div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+</body>
+</html>

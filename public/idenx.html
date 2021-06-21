@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>iframe+postMessage 跨域通信 主页面</title>
+</head>
+<body>
+<h1>主页面</h1>
+<iframe id="child" src="./iframe.html"></iframe>
+<div>
+    <h2>主页面接收消息区域</h2>
+    <span id="message"></span>
+</div>
+</body>
+<script>
+
+  // window.onload = function(){
+  //
+  // }
+  window.addEventListener('message', function(event){//父获取子传递的消息
+    console.log(event.data)
+  }, false)
+
+    function postMessage(data,url =window.location.href){
+      document.querySelector('child').contentWindow.postMessage(data,url)//父向子传递
+    }
+</script>
+</html>

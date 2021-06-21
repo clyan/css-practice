@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三列布局</title>
+    <style>
+        .main, .left, .right {
+            float: left;
+        }
+        .wrap {
+            padding: 0 200px 0 300px;
+        }
+        .wrap::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .main {
+            width: 100%;
+            background-color: red;
+        }
+        .left {
+            position: relative;
+            width: 300px;
+            left: -300px;
+            margin-left: -100%;
+            background-color: green;
+
+        }
+        .right {
+            position: relative;
+            width: 200px;
+            right: -200px;
+            margin-left: -200px;
+            background-color: blue;
+        }
+
+        @media only screen and (max-width: 1200px)  {
+            .wrap {
+                padding: 0;
+            }
+            .left {
+                left: 0;
+                margin-left: 0;
+                width: 100%;
+            }
+            .right{
+                right: 0;
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <main class="main">main</main>
+    <aside class="left">left</aside>
+    <aside class="right">right</aside>
+</div>
+</body>
+</html>

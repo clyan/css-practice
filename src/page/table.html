@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        tbody tr:nth-of-type(odd) {
+            background-color: #F1F1F1;
+        }
+        tbody tr:nth-of-type(even) {
+            background-color: #F5F5F5;
+        }
+        tbody tr td:first-of-type {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<table border="0" bordercolor="#E8E8E8" cellpadding="5">
+
+    <thead>
+        <tr bgcolor="#696969">
+            <th>Option</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>showSpeed</td>
+        <td>15</td>
+        <td>The speed of the show/reveal</td>
+    </tr>
+    <tr>
+        <td>show Easing</td>
+        <td>'linear'</td>
+        <td>The easing of the show/reveal</td>
+    </tr>
+    <tr>
+        <td>hideSpeed</td>
+        <td>50</td>
+        <td>The speed of the hide/conceal</td>
+    </tr>
+    <tr>
+        <td>hideEasing</td>
+        <td>'linear'</td>
+        <td>The easing of the hide/conceal</td>
+    </tr>
+    <tr>
+        <td>width</td>
+        <td>'auto'</td>
+        <td>The width that the data will be truncated to - <i>('auto' or px amount)</i></td>
+    </tr>
+    <tr>
+        <td>ellipsis</td>
+        <td>true</td>
+        <td>Set to true to enable the ellipsis</td>
+    </tr>
+    <tr>
+        <td>title</td>
+        <td>false</td>
+        <td>Set to true to show the full data on hover</td>
+    </tr>
+    <tr>
+        <td>afterShow</td>
+        <td>$.noop</td>
+        <td>The callback fired after the show/reveal</td>
+    </tr>
+    <tr>
+        <td>afterHide</td>
+        <td>$.noop</td>
+        <td>The callback fired after the hide/conceal</td>
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>

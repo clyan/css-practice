@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #222;
+        }
+        header{
+            color: white;
+        }
+        .staggered-rise-in{
+            overflow: hidden;
+            display: flex;
+            white-space: pre;
+            overflow: hidden;
+        }
+        span{
+            transform: translateY(100%);
+            animation: movey 2s forwards;
+        }
+        @keyframes movey {
+            to{
+                transform: translateY(-15%);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1 class="title staggered-rise-in">I'm alphardex.</h1>
+    <p class="subtitle staggered-rise-in">A CSS Wizard</p>
+</header>
+</body>
+<script>
+    let staggeredRiseIns =document.querySelectorAll(".staggered-rise-in")
+    staggeredRiseIns.forEach(text=>{
+      let letters = text.textContent.split('')
+      text.textContent=''
+      letters.forEach((letter,i)=>{
+        let span =document.createElement("span")
+        span.textContent = letter
+        span.style.animationDelay = `${i/20}s`
+        text.append(span);
+      })
+    })
+</script>
+</html>

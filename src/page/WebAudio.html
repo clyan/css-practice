@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./Yaudio.js"></script>
+</head>
+<body>
+<button onclick=" play && play()">播放音乐</button>
+<div>
+    <label>音量：</label>
+    <input type="range" value="0.1" max="1" step="0.01" onchange="updateVolume(this)" />
+</div>
+<div>
+    <label>奈奎斯特频率：</label>
+    <input type="range" value="350" max="800" step="1" onchange="BiquadFilter(this)" />
+</div>
+<div>
+    <label>3D环绕：</label>
+    <label>x：</label>
+    <input type="range" value="0" min="-360" max="360" step="1" data-type="x" onchange="updatePannerNode(this)" />
+    <label>y：</label>
+    <input type="range" value="0" min="-360" max="360" step="1" data-type="y" onchange="updatePannerNode(this)" />
+    <label>z：</label>
+    <input type="range" value="1" min="-360" max="360" step="1" data-type="z" onchange="updatePannerNode(this)" />
+</div>
+<canvas id="canvas" width="600" height="600" style="background-color: #000"></canvas>
+<audio id="au" controls src="./source/隔壁老樊-不找了（翻自 郭旭）.mp3" style="display: none;"></audio>
+<script type="text/javascript">
+  let updateVolume = null,
+    BiquadFilter = null,
+    updatePannerNode = null;
+  let listener = null,play = null, analysered = null;
+  new YAudio({
+    source: document.querySelector("#au")
+  }).then(yAudio => {
+    play = function () {
+      if (yAudio.$ready) {
+        yAudio.start();
+
+        let { gainNode, biquadFilter, panner, analyser } = yAudio.$assembler;
+        updateVolume = function(e){
+          gainNode.gain.value = e.valueAsNumber;
+        }
+        BiquadFilter = function (e) {
+          biquadFilter.frequency.value = e.valueAsNumber;
+        }
+        updatePannerNode = function (e) {
+          const type = e.getAttribute("data-type");
+          switch (type) {
+            case 'x' :
+              panner.positionX.value = e.valueAsNumber
+              break;
+            case 'y':
+              panner.positionY.value = e.valueAsNumber
+              break;
+            case 'z':
+              panner.positionZ.value = e.valueAsNumber
+              break;
+          }
+        }
+        requestAnimationFrame(() => {
+          animateCanvas(createCtx(), analyser);
+        });
+
+      }else {
+        console.error("视频未就绪，请稍后")
+      }
+    }
+  })
+
+  function createCtx() {
+    const canvas = document.querySelector("#canvas");
+    const ctx = canvas.getContext('2d');
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgba(72, 226, 251, 0.8)';
+    ctx.fillStyle = "rgba(72, 226, 251, 0.8)";
+    return ctx;
+  }
+  function animateCanvas(ctx,analyser) {
+    ctx.clearRect(0, 0, 600, 600);
+    analyser.fftSize = 1024;
+    const arrayLength = analyser.frequencyBinCount;
+    const array = new Uint8Array(arrayLength);
+    ctx.beginPath();
+    analyser.getByteFrequencyData(array);
+    for (let i = 0; i < 512; i++) {
+      this.drawOuter(array, i, ctx);
+      this.drawInner(array, i, ctx);
+    }
+    ctx.stroke();
+    ctx.fill();
+    requestAnimationFrame(() => {
+      animateCanvas(ctx, analyser);
+    });
+  }
+  /**
+   * 绘制内圈 point
+   */
+  function drawInner(array, i, ctx) {
+    if (i < 136) {
+      var point = i % 9 > 4 ? (9 - i % 9) : (i % 9);
+      var value = (array[i]) * 120 / 256 * ((5 - point) / 5);
+      if (value > 70) {
+        value = ((value - 70) * 120 / 50);
+      } else {
+        value = 0;
+      }
+      ctx.moveTo(( Math.sin(((i) * 4 / 3) / 180 * Math.PI) * (198 - value) + 300), Math.cos(((i) * 4 / 3) / 180 * Math.PI) * (198 - value) + 300);
+      ctx.arc(( Math.sin(((i) * 4 / 3) / 180 * Math.PI) * (198 - value) + 300), Math.cos(((i) * 4 / 3) / 180 * Math.PI) * (198 - value) + 300, 0.6, 0, 2 * Math.PI);
+
+      ctx.moveTo((-Math.sin(((i) * 4 / 3) / 180 * Math.PI) * (198 - value) + 300), Math.cos(((i) * 4 / 3) / 180 * Math.PI) * (198 - value) + 300);
+      ctx.arc(( -Math.sin(((i) * 4 / 3) / 180 * Math.PI) * (198 - value) + 300), Math.cos(((i) * 4 / 3) / 180 * Math.PI) * (198 - value) + 300, 0.6, 0, 2 * Math.PI);
+    }
+  }
+
+  /**
+   * 绘制外圈 bar
+   */
+  function drawOuter(array, i, ctx) {
+    if (i > 130 && i < 271) {
+      var value = (array[i]) * 120 / 256;
+      if (value > 20) {
+        value = (value - 20) * 120 / 100;
+      } else {
+        value = 0;
+      }
+      ctx.moveTo(( Math.sin((i * 4 / 3) / 180 * Math.PI) * 200 + 300), Math.cos((i * 4 / 3) / 180 * Math.PI) * 200 + 300);
+      ctx.lineTo(( Math.sin((i * 4 / 3) / 180 * Math.PI) * (200 + value) + 300), Math.cos((i * 4 / 3) / 180 * Math.PI) * (200 + value) + 300);
+
+      ctx.moveTo(( -Math.sin((i * 4 / 3) / 180 * Math.PI) * 200 + 300), Math.cos((i * 4 / 3) / 180 * Math.PI) * 200 + 300);
+      ctx.lineTo(( -Math.sin((i * 4 / 3) / 180 * Math.PI) * (200 + value) + 300), Math.cos((i * 4 / 3) / 180 * Math.PI) * (200 + value) + 300);
+
+    }
+  }
+</script>
+</body>
+</html>

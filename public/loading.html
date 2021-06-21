@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #222;
+        }
+        .loading{
+            display: flex;
+            font-size: 3em;
+            text-transform: uppercase;
+        }
+        span{
+            padding: 0 20px;
+            line-height: 100px;
+            background: #34495e;
+            animation: bulge 2s infinite;
+        }
+        @keyframes bulge {
+            50% {
+                box-shadow: 0 20px 0 #eee;
+                transform: translateY(-35px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">Loading</div>
+</body>
+<script>
+  let loadingText =document.querySelector(".loading")
+  let letters =loadingText.textContent.split('')
+  loadingText.textContent =''
+  letters.forEach((letter,i)=>{
+    let span = document.createElement("span")
+    span.textContent = letter
+    span.style.animationDelay = i/5+'s'
+    loadingText.append(span);
+  })
+</script>
+</html>

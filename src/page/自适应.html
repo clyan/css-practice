@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    html {
+      font-size: 62.5%;
+    }
+    html, body {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+      font-size: 10vw;
+    }
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      flex: 0 0 8vh;
+      background: red;
+    }
+    main {
+      flex: 1;
+      background: green;
+      overflow: auto;
+    }
+    footer {
+      background: blue;
+      height: 20vh;
+    }
+    .input-contaniner {
+      height: 5vh;
+    }
+    input {
+      display: inline-block;
+      height: 100%;
+      border: 0;
+    }
+    #footBody{
+      height: 30%;
+      background: yellow;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header></header>
+    <main id="main">
+    </main>
+    <footer>
+      <div class="input-contaniner">
+        <input id="in" type="text"/>
+      </div>
+      <div id="footBody" class="foot-body">
+          这是键盘部分
+      </div>
+    </footer>
+  </div>
+  <script>
+    const main = document.querySelector("#main");
+    const inp = document.querySelector("#in");
+    const footBody = document.querySelector("#footBody");
+    inp.addEventListener("click", function() {
+      footBody.style.display = "block";
+    })
+    main.addEventListener("click", function() {
+      footBody.style.display = "none";
+    })
+    let mainContent = ""
+    for(let i = 0; i <= 400; i++) {
+      mainContent+= "<p>inline</p>"
+    }
+    main.innerHTML = mainContent;
+  </script>
+</body>
+</html>

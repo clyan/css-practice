@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, 
+        initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin:0
+        }
+        .header, .footer {
+            height: 100px;
+            background: #00AEE8;
+        }
+        .container{
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container_main {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 5px 0;
+        }
+        .left {
+            width: 300px;
+
+        }
+        .right {
+            width: 300px;
+            background: green;
+        }
+        .main {
+            flex: 1;
+            padding: 5px;
+        }
+        .card-box {
+            background: #cccccc;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .card {
+            box-sizing: border-box;
+            background: #00AEE8;
+            margin: 10px;
+            padding: 5px;
+            flex: 1 1 30%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+        .nav{
+            max-width: calc(100% - 600px);
+            background: yellow;
+            margin: 0 auto;
+            height: 100%;
+        }
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            padding-top: 10px;
+        }
+        .nav ul li {
+            flex: 1;
+            background: #00CB91;
+            border-right: 2px solid #cccccc;
+            text-align: center;
+            color: white;
+            line-height: 80px;
+            cursor: pointer;
+        }
+        .nav ul li:last-of-type{
+            border-right: none;
+        }
+        .left {
+            padding:0 5px;
+            display: flex;
+            max-height: calc(100vh - 200px);
+            overflow-y: scroll;
+            box-sizing: border-box;
+            flex-direction: column
+        }
+        .left::-webkit-scrollbar {
+            width: 3px;
+        }
+        .left::-webkit-scrollbar-track {
+            background: #cccccc;
+        }
+        .left::-webkit-scrollbar-thumb {
+            background: #00AEE8;
+        }
+        .selection {
+            flex: 1;
+            background: red;
+            margin-bottom: 5px;
+            min-height: 200px;
+        }
+        .selection:last-of-type{
+            margin-bottom: auto;
+        }
+        @media screen and (max-width: 1200px){
+            .nav {
+                max-width: 100%;
+            }
+            .left {
+                margin-left: -300px;
+            }
+        }
+        @media screen and (max-width: 900px){
+            .right {
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="nav">
+                <ul>
+                    <li>中央控制</li>
+                    <li>中央控制</li>
+                    <li>中央控制</li>
+                    <li>中央控制</li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container_main">
+            <aside class="left">
+                <div class="selection">
+
+                </div>
+                <div class="selection">
+
+                </div>
+                <div class="selection">
+
+                </div>
+                <div class="selection">
+
+                </div>
+                <div class="selection">
+
+                </div>
+            </aside>
+            <main class="main">
+                <div class="card-box">
+                    <div class="card">
+                        <img src="../assets/test.jpg">
+                    </div>
+                    <div class="card">
+                        <img src="../assets/test.jpg">
+                    </div>
+                    <div class="card">
+                        <img src="../assets/test.jpg">
+                    </div>
+                    <div class="card">
+                        <img src="../assets/test.jpg">
+                    </div>
+                    <div class="card">
+                        <img src="../assets/test.jpg">
+                    </div>
+                    <div class="card">
+                        <img src="../assets/test.jpg">
+                    </div>
+                </div>
+            </main>
+            <aside class="right"></aside>
+        </div>
+        <footer class="footer"></footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /**
+    * 1. 
+    */
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    /* html, body, .wrap, .center, .left, .right {
+      height: 100%;
+    } */
+    /* 预留左右位置 */
+    .wrap {
+      padding: 0 300px 0 200px;
+      background: grey;
+      overflow: hidden;
+    }
+    .left {
+      position: relative;
+      width: 200px;
+      float: left;
+      /* 对应 wrap 的padding预留的值*/
+      left: -200px;
+      /*  利用margin负值覆盖前面盒子 */
+      margin-left: -100%;
+      background-color: red;
+    }
+
+    /* 占100% */
+    .center {
+      width: 100%;
+      float: left;
+      background-color: green;
+    }
+    .right {
+      position: relative;
+      width: 300px;
+      float: left;
+      right: -300px;
+      margin-left: -300px;
+      background-color: blue;
+    }
+    /* 登高布局 */
+    .left, .right, .center {
+      padding-bottom: 99999px;
+      margin-bottom:  -99999px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="center">
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+      <p>50</p>
+    </div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+</body>
+</html>

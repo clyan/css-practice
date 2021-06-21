@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>彩虹文字</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #222;
+        }
+        .rainbow {
+            letter-spacing: 0.2rem;
+            font-size: 1.2rem;
+            font-family: Lato, serif;
+            text-transform: uppercase;
+        }
+        span {
+            animation: rainbow 50s alternate infinite forwards;
+        }
+        @keyframes rainbow {
+            to{
+                color: hsl(20,20,20%);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="rainbow">ano hi mada shiranai no fushigi no monogatari</div>
+</body>
+<script>
+  let rainbowText = document.querySelector(".rainbow");
+  let letters = rainbowText.textContent.split("");
+  rainbowText.textContent = "";
+  letters.forEach((letter, i) => {
+    let span = document.createElement("span");
+    span.textContent = letter;
+    span.style.animationDelay = `${-20 + i * 0.2}s`;
+    rainbowText.append(span);
+  });
+
+</script>
+</html>

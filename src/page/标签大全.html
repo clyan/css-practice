@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标签大全</title>
+    <link rel="stylesheet" href="./css/label.css" />
+    <style>
+        div div.box1.box2 {
+            color: #00AEE8;
+        }
+        .box1 {
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header id="header" style="background-color: red;">
+            <div class="box1 box2">
+                box1 box2
+                <div>
+                    box
+                </div>
+            </div>
+            <div class="box1">
+                box1
+            </div>
+        </header>
+        <nav>
+            nav
+        </nav>
+        <main>
+            <aside class="leftBar">
+                <dl>
+                    <dt>dt列表标题</dt>
+                    <dd>dd列</dd>
+                    <dd>dd列</dd>
+                    <dd>dd列</dd>
+                </dl>
+                <ol>
+                    <li>Ol有序列表</li>
+                    <li>Ol有序列表</li>
+                </ol>
+                <ul>
+                    <li>ul无序列表</li>
+                    <li>ul无序列表</li>
+                </ul>
+                <hgroup id="document-title">
+                    <h1>h1</h1>
+                    <h2>h2</h2>
+                    <h3>h3</h3>
+                    <h4>h4</h4>
+                    <h5>h5</h5>
+                    <h6>h6</h6>
+                </hgroup>
+            </aside>
+            <section class="main-section">
+                <article>
+                    <figure>
+                        <img src="../assets/test.jpg"
+                             alt="Elephant at sunset">
+                        <figcaption>figure与figcaption</figcaption>
+                    </figure>
+                    <pre>
+                    <code>
+                        pre code源代码
+                        function () {
+                          hello world
+                        }
+                    </code>
+
+                </pre>
+                    <p>p <b>b元素用于吸引读者的注意到该元素的内容上</b></p>
+                </article>
+                <article>
+                    <p>wbr ,http://yyy/pages<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/deeper<wbr>/level<wbr>/pages</p>
+                    <del>del 删除线</del>
+                    <br>
+                    <ins>ins 下划线</ins>
+                    <br>
+                    <i>i 斜体</i>
+                    <br>
+                    <em>
+                        斜体
+                        <em>em</em>
+                    </em><br>
+                    <ruby>ruby东亚文字注释</ruby> <br>
+                    <rb>rb,注释</rb> <br>
+                    <rp>rp,注释</rp>
+                    <br>
+                    <q>q 短的行内引用的文本</q>
+                    <blockquote>blockquote长的引入文本</blockquote>
+                    <mark style="color: black;">mark引用或符号目的而标记或突出显示的文本</mark>
+                    <br>
+                    <time>time : 2017/02/21</time>
+                    <br>
+                     <strong>strong : 加粗</strong>
+                    <br>
+                    <var>var ：表示变量</var>
+                </article>
+                <article>
+                    <small>small :字体小一号</small>
+                    <br>
+                    <kbd>kbd：表示用户输入的</kbd>
+                    <p>我是<sup>sup</sup>呀，平方根n<sup>2</sup></p>
+                    <p>我是<sub>  sub</sub>呀,化学方程式H<sub>2</sub></p>
+                    <dialog open>dialog</dialog>
+                    <details>
+                        <summary>Details</summary>
+                        summary
+                    </details>
+                    <-- menu 实验功能 -->
+                    <template>
+                        aa
+                        <slot name="detailSlot">detailSlot</slot>
+                    </template>
+                </article>
+                <article>
+                    <-- 表格 -->
+                    <table>
+                        <caption>caption标题</caption>
+                        <colgroup>
+                            <col span="2" style="background-color:mediumspringgreen">
+                            <col style="background-color:hotpink">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>thead: th</th>
+                                <th scope="col">thead: th</th>
+                                <th scope="col">thead: th</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">tbody: th</th>
+                                <td>tbody: td</td>
+                                <td>tbody: td</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">tbody: th</th>
+                                <td>tbody: td</td>
+                                <td>tbody: td</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <-- 表单 -->
+                    <form>
+                        <fieldset>
+                            <legend>fieldset && legend</legend>
+                            <button type="button">button</button>
+                            <input type="text" placeholder="input" />
+                            <label for="checkbox">checkboxlabel</label>
+                            <input type="checkbox" id="checkbox"/>
+                            <label for="meter">meterlabel</label>
+                            <meter id="meter" min="0" max="100" value="20"></meter>
+
+                            <select style="color:#000;">
+                                <option value="select&&option">select&&option</option>
+                                <optgroup label="optgroup">
+                                    <option>Option 2.1</option>
+                                    <option>Option 2.2</option>
+                                </optgroup>
+                            </select>
+                            <label for="progress">progress</label>
+                            <progress id="progress" max="100" value="70"> 70% </progress>
+                            <textarea maxlength = "200" minlength="100">
+
+                            </textarea>
+                            <br />
+                            <label for="ice-cream-choice">datalist:</label>
+
+                            <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+
+                            <datalist id="ice-cream-flavors">
+                                <option value="Chocolate">
+                                <option value="Coconut">
+                                <option value="Mint">
+                                <option value="Strawberry">
+                                <option value="Vanilla">
+                            </datalist>
+
+                        </fieldset>
+                    </form>
+                    <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+                        <label for="range">range</label>
+                        <input id="range" type="range" name="b" value="50" /> +
+                        <input type="number" name="a" value="10" /> =
+                        <output name="result" ></output>
+                    </form>
+                </article>
+            </section>
+            <aside class="rightBar">
+                <img src="../assets/test.jpg" alt="Elephant at sunset" usemap="#primary">
+                <map name="primary">
+                    <area shape="circle" coords="180,20,20" href="BFC.html" />
+                </map>
+                <div>
+                    <audio src="">
+                        <track src="">
+                    </audio>
+                    <video src=""> <track src=""></video>
+                    音频： audio， 视频： video, 字幕：track
+                </div>
+                <-- picture ，source,配合在不同分辨率下显示不同图片 -->
+                <picture>
+                    <source srcset="../assets/test.jpg"
+                            media="(min-width: 800px)">
+                    <img src="../assets/test.jpg" alt="Elephant at sunset" >
+                </picture>
+                <-- embed -->
+                <embed width="200" src="http://localhost:63342\kaikeba\CssPractice\src\assets\helloworld.swf">
+                <-- iframe BFC.html-->
+                <iframe src="BFC.html"></iframe>
+            </aside>
+        </main>
+        <footer>
+            <address>address</address>
+        </footer>
+    </div>
+</body>
+</html>

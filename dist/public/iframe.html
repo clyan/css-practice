@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>iframe+postMessage跨域通信 子页面</title>
+</head>
+<body>
+<div>
+    <span id="message">aaaa</span>
+</div>
+</body>
+<script>
+  (function(global,factory){
+    factory()
+  })(window,function(){
+    var host = window.location.origin;//获取当前窗口的主机名;   结果：localhost:61768
+    var  url = 'http://'+ host
+    console.log(window.parent)
+      console.log(top)
+      const obj=document.querySelector('#message')
+      let a=[]
+      obj.addEventListener('click',function(){
+        a.push(1)
+        top.postMessage(a, host+'/idenx.html')//父向子消息
+      })
+  })
+</script>
+</html>
